@@ -3,26 +3,18 @@ package main
 import "fmt"
 
 func main() {
-	nums := []int{
-		1,
-		3,
-		2,
-		5,
-		2,
-	}
-
-	k := removeDuplicates(nums);
-	fmt.Println(k);
+	an := searchInsert([]int{1,3,5,6}, 5)
+	fmt.Println("an", an)
 }
 
-func removeDuplicates(nums []int) int {
-	prev := 0
+func searchInsert(nums []int, target int) int {
 
-	for _, num := range nums {
-		if nums[prev] != num {
-			prev++
-			nums[prev] = num
+	res := 0;
+	for _, v := range nums {
+		if v >= target {
+			return res;
 		}
+		res++
 	}
-	return prev + 1
+	return res;
 }
